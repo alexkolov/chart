@@ -1,0 +1,9 @@
+<nouislider
+  *ngIf="state"
+  [connect]="state.connect"
+  [min]="state.min"
+  [max]="state.max"
+  [step]="state.step"
+  [ngModel]="state.range"
+  (ngModelChange)="onSlide($event)">
+</nouislider>

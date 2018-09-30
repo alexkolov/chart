@@ -1,0 +1,9 @@
+<canvas
+  *ngIf="visible"
+  baseChart
+  chartType="bar"
+  [datasets]="bars | toDataset"
+  [labels]="labels"
+  [colors]="colors"
+  [options]="chartOptions">
+</canvas>

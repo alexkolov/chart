@@ -1,27 +1,32 @@
 import { TestBed, async } from '@angular/core/testing';
+import { NouisliderModule } from 'ng2-nouislider';
+import { ChartsModule } from 'ng2-charts';
 import { AppComponent } from './app.component';
+import { SliderComponent } from './widgets/slider/slider.component';
+import { ChartComponent } from './widgets/chart/chart.component';
+import { ToDatasetPipe } from './pipes/to-dataset.pipe';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
+        declarations: [
+          AppComponent,
+          SliderComponent,
+          ChartComponent,
+          ToDatasetPipe
+        ],
+        imports: [
+          NouisliderModule,
+          ChartsModule
+        ]
+      })
+      .compileComponents();
   }));
+
   it('should create the app', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
-  it(`should have as title 'chart'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('chart');
-  }));
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to chart!');
+    expect(app)
+      .toBeTruthy();
   }));
 });
